@@ -1,0 +1,35 @@
+1) seen_line_terminator_after_non_ws
+2) last_token_disallows_line_terminator
+3) last_token_nonexpr_paren
+
+1) seen_line_terminator_after_non_ws:
+initially => false
+LineTerminator or MultiLineComment with NL => true
+Comment or Whitespace => does not change
+otherwise => false
+
+used in ++, -- to determine next state:
+  (Initial|ExpectExpression, false|true) => ExpectExpression
+  (AfterExpression, false) => Initial
+  (AfterExpression, true) => ExpectExpression
+
+2) last_token_disallows_line_terminator:
+initially => false
+Word("return"|"continue"|"break") => true
+Whitespace, LineTerminator, Comments => does not change
+otherwise => false
+
+used in '{' to determine pushed state:
+  ExpectExpression 
+  (false, _) | (true, false) => Initial
+  (true, true) => 
+
+3) last_token_nonexpr_paren:
+initially => false
+Word("if"|"for"|"while") => true
+Whitespace, LineTerminator, Comments => does not change
+otherwise => false
+
+4) in for(A;B;C): A is statement, B and C are expressions
+
+in_for: bool

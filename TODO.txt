@@ -1,0 +1,27 @@
+Token detection and consumption:
+
+ +Whitespace
+ +Line terminators
+ +Comments
+ +Keywords and identifiers
+ +Numeric literals
+  +Decimal
+  +Binary
+  +Octal
+  +Hexadecimal
+  +Decimal float
+  +Decimal exp
+ +String literal
+  +escape
+  +hexadecimal escape
+  +utf-16 code point escape \uABCD
+  +unicode code point escape \u{...}
+ +Regular expression
+  +Flags
+ Template literal ``
+ +Punctuation:
+  +. ( ) { } [ ] + - * / ^ | & && < > << >> = == === != !== += -= *= /= >>= <<= &= |= ! ~ , ; : ? % %=
+ 
++Regexp and division disambiguation
+
++Handling Automatic semicolon insertion for regexp/division disambiguation

@@ -1,0 +1,6 @@
+[package]
+name = "js-lex-rs"
+version = "0.1.0"
+authors = ["Dmitry Kalyanov <Kalyanov.Dmitry@gmail.com>"]
+
+[dependencies]
